@@ -1,7 +1,7 @@
 ---
 title: {{ site.github.project_title}}
 ---
-<link rel="stylesheet" type="text/css" href="h//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css" />
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/jasonm23/markdown-css-themes/gh-pages/swiss.css" />
 
 

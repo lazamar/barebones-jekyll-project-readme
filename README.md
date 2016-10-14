@@ -2,19 +2,39 @@
 
 This repo shows in a very simple and minimalistic way how to create show your readme file in your `Jekyll` index page.
 
-Check it out here: [lazamar.github.io/barebones-jekyll-project-readme](lazamar.github.io/barebones-jekyll-project-readme)
+Check it out here: [https://lazamar.github.io/barebones-jekyll-project-readme/](https://lazamar.github.io/barebones-jekyll-project-readme/)
 
 With this setup you can immediately create a project page for any repo by just including the `_config.yml` and `index.md` files exaclty as they are here, without needing to change a single comma, and creating a `gh-pages` branch. It will automatically link to your repo and load your README.
 
 
 If you are reeeally lazy and don't want to be copying files, you can just run this from within the repo folder.
 
-```
 
 ```
+# Copy our two files to the gh-pages branch
+git checkout -b gh-pages &&
+wget https://raw.githubusercontent.com/lazamar/barebones-jekyll-project-readme/master/_config.yml &&
+wget https://raw.githubusercontent.com/lazamar/barebones-jekyll-project-readme/master/index.md &&
 
+# Commit and publish our page on github
+git add -A && git commit -m "Create project github page" &&
+git push --set-upstream origin gh-pages
+
+git checkout master # go back to master branch
+```
+
+And then, don't forget, every time you change your readme you have to do
+
+
+```
+git checkout gh-pages &&
+git rebase master &&
+git push -f &&
+git checkout master # go back to master branch
+```
 
 Here is some javascript code just to show that syntax highlighting is working in the project page and in the project `README.md` file view even though we are not using `Jekyll`'s liquid tags to set the language. (Cool eh?)
+
 
 ``` javascript
 /**

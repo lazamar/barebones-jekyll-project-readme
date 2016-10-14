@@ -8,6 +8,7 @@ Check it out here: [https://lazamar.github.io/barebones-jekyll-project-readme/](
 
 With this setup you can immediately create a project page for any repo by just including the `_config.yml` and `index.md` files exaclty as they are here, without needing to change a single comma, and creating a `gh-pages` branch. It will automatically link to your repo and load your README.
 
+## Problem free one time setup
 
 If you are reeeally lazy and don't want to be copying files, you can just run this from within the repo folder. (*yes, you can just copy the whole block and paste into the terminal*)
 
@@ -24,6 +25,8 @@ git push --set-upstream origin gh-pages |
 #
 git checkout master # go back to master branch
 ```
+
+## Super chilled automation
 
 And then, don't forget, every time you change your readme you have to update the `gh-pages` branch. I know you are lazy, let's automate that with another one-liner.
 

@@ -1,6 +1,6 @@
 # Barebones Jekyll Project README
 
-![For badge's sake](http://forthebadge.com/images/badges/no-ragrets.svg)
+![For badge's sake](http://forthebadge.com/images/badges/no-ragrets.svg) ![For badge's sake](http://forthebadge.com/images/badges/gluten-free.svg)
 
 This repo shows in a very simple and minimalistic way how to create show your readme file in your `Jekyll` index page.
 

@@ -1,5 +1,7 @@
 # Barebones Jekyll Project README
 
+![For badge's sake](http://forthebadge.com/images/badges/no-ragrets.svg)
+
 This repo shows in a very simple and minimalistic way how to create show your readme file in your `Jekyll` index page.
 
 Check it out here: [https://lazamar.github.io/barebones-jekyll-project-readme/](https://lazamar.github.io/barebones-jekyll-project-readme/)
@@ -7,7 +9,7 @@ Check it out here: [https://lazamar.github.io/barebones-jekyll-project-readme/](
 With this setup you can immediately create a project page for any repo by just including the `_config.yml` and `index.md` files exaclty as they are here, without needing to change a single comma, and creating a `gh-pages` branch. It will automatically link to your repo and load your README.
 
 
-If you are reeeally lazy and don't want to be copying files, you can just run this from within the repo folder.
+If you are reeeally lazy and don't want to be copying files, you can just run this from within the repo folder. (*yes, you can just copy the whole block and paste into the terminal*)
 
 
 ```
@@ -15,23 +17,35 @@ If you are reeeally lazy and don't want to be copying files, you can just run th
 git checkout -b gh-pages &&
 wget https://raw.githubusercontent.com/lazamar/barebones-jekyll-project-readme/master/_config.yml &&
 wget https://raw.githubusercontent.com/lazamar/barebones-jekyll-project-readme/master/index.md &&
-
+#
 # Commit and publish our page on github
 git add -A && git commit -m "Create project github page" &&
-git push --set-upstream origin gh-pages
-
+git push --set-upstream origin gh-pages |
+#
 git checkout master # go back to master branch
 ```
 
-And then, don't forget, every time you change your readme you have to do
+And then, don't forget, every time you change your readme you have to update the `gh-pages` branch. I know you are lazy, let's automate that with another one-liner.
 
 
 ```
-git checkout gh-pages &&
-git rebase master &&
-git push -f &&
-git checkout master # go back to master branch
+$(cat > .git/hooks/pre-push << EOF
+#!/bin/sh
+we_are_in_gh_pages="\$(git branch | grep -G "* gh-pages")"
+
+if [ ! "\$we_are_in_gh_pages" ];
+  then
+    git checkout gh-pages &&
+    git rebase master &&
+    git push -f &&
+    git checkout master # go back to master branch
+fi
+EOF
+) && chmod 775 .git/hooks/pre-push
 ```
+
+**That's it**. Now you have a git hook that will update your `gh-pages` branch every time you push something to github.
+
 
 Here is some javascript code just to show that syntax highlighting is working in the project page and in the project `README.md` file view even though we are not using `Jekyll`'s liquid tags to set the language. (Cool eh?)
 

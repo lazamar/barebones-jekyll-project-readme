@@ -50,6 +50,10 @@ EOF
 **That's it**. Now you have a git hook that will update your `gh-pages` branch every time you push something to github.
 
 
+## Make it pretty
+
+As you can see at the beginning of the `README.md` I'm just using some `css` files I fetched from some nice open-source projects. You can make it as pretty as you want by changing those ;)
+
 Here is some javascript code just to show that syntax highlighting is working in the project page and in the project `README.md` file view even though we are not using `Jekyll`'s liquid tags to set the language. (Cool eh?)
 
 
